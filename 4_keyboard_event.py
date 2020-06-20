@@ -1,5 +1,4 @@
 import pygame
-
 pygame.init() # 초기화 (반드시 필요)
 
 # 화면 크기 설정
@@ -33,6 +32,7 @@ while running:
     for event in pygame.event.get(): # 어떤 이벤트가 계속 발생
         if event.type == pygame.QUIT: # 창이 닫히는 이벤트 발생
             running = False # 게임이 진행중이 아닙니다.
+            
         if event.type == pygame.KEYDOWN: #키가 눌러졌는지 확인
             if event.key == pygame.K_LEFT:
                 to_x -= 5
@@ -50,7 +50,7 @@ while running:
     character_x_pos += to_x
     character_y_pos += to_y
     #screen.blit(background, (0, 0)) # 배경 그리기
-    screen.fill((0, 0, 255))
+    screen.blit(background, (0,0))
     screen.blit(character, (character_x_pos,character_y_pos))
     pygame.display.update() # 화면 다시 그리기(반복)
 # pygame 종료
